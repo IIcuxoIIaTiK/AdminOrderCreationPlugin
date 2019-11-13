@@ -28,8 +28,8 @@ final class ProvideAvailableShippingMethodsAction
 
     public function __invoke(Request $request): Response
     {
-        $order = $this->orderPreparator->prepareFromRequest($request);
         dd($order);
+        $order = $this->orderPreparator->prepareFromRequest($request);
         $shipment = $order->getShipments()->get((int) $request->attributes->get('shipmentNumber'));
 
         if ($shipment === null) {
